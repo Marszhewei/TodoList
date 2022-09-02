@@ -29,8 +29,7 @@ void add_plan(void)
 {
     char user_input[SIZE];
     printf("Type your todo \n >>");
-    // fgets(user_input, SIZE, stdin);
-    scanf("%s", user_input);
+    scanf("%[^\n]s", user_input);
     getchar();
     strncpy(todos[length].plans, user_input, SIZE);
 
