@@ -1,7 +1,7 @@
 /**
  * @file ui.c
- * @author your name (you@domain.com)
- * @brief 
+ * @author fetch150zy (Mars_zhewei@outlook.com)
+ * @brief source file for menu
  * @version 0.1
  * @date 2022-09-02
  * 

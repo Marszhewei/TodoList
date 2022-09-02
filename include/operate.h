@@ -1,7 +1,7 @@
 /**
  * @file operate.h
- * @author your name (you@domain.com)
- * @brief 
+ * @author fetch150zy (Mars_zhewei@outlook.com)
+ * @brief head file for base operate
  * @version 0.1
  * @date 2022-09-02
  * 
