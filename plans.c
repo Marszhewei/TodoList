@@ -25,18 +25,18 @@ unsigned char length = 0;
 
 int main(int argc, char** argv)
 {
-    system("clear||@cls");
-    printf("\033[38;5;226m");
+    system("clear||@cls");              /* clean srceen */
+    printf("\033[38;5;226m");           /* set menu color */
 
     FILE *fp = NULL;
-    if (access("database/db.bin", F_OK) == -1) {
+    if (access("database/db.bin", F_OK) == -1) {    /* database is exist? */
         bool is_created = create_database(fp);
-        if (!is_created) {
+        if (!is_created) {                          /* failed to create */
             puts("The todolist app is crash!");
             return ERROR_EXIT;
         }
     }
-    operate(fp);
+    operate(fp);                                    /* main loop */
     
     return 0;
 }

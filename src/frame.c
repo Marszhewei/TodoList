@@ -31,11 +31,13 @@ static bool read_from_database(FILE* fp)
 {
     fp = fopen("database/db.bin", "rb");
     if (NULL != fp) {
+        /* get number of plans */
         fseek(fp, 0L, SEEK_END);
         unsigned long int size = ftell(fp);
         fseek(fp, 0L, SEEK_SET);
         length = (unsigned char)(size / sizeof(struct planlist));
 
+        /* copy data from database to data structure */
         for (unsigned char i = 0; i < length; ++i)
             fread(&todos[i], sizeof(struct planlist), 1, fp);
         fclose(fp);
@@ -63,6 +65,7 @@ static bool save_todo(FILE *fp)
         return SAVE_ERROR;
     }
     else {
+        /* write data from data structure to database */
         for (unsigned char i = 0; i < length; ++i)
             fwrite(&todos[i], sizeof(struct planlist), 1, fp);
         fclose(fp);

@@ -29,10 +29,12 @@ void add_plan(void)
 {
     char user_input[SIZE];
     printf("Type your todo \n >>");
+    /* get plans string */
     scanf("%[^\n]s", user_input);
     getchar();
     strncpy(todos[length].plans, user_input, SIZE);
 
+    /* get and format time */
     char todo_time[SIZE];
     struct tm at_time;
     time_t times = time(NULL);
@@ -56,7 +58,7 @@ void delete_plan(void)
     printf("Enter the ID of plans \n>>");
     scanf("%d", &todo_id);
     getchar();
-    if (todo_id < 0 || todo_id > length)
+    if (todo_id < 1 || todo_id > length)
         puts("Invalid todo id 😑");
     else {
         todo_id--;
@@ -78,7 +80,7 @@ void complete_plan(void)
     scanf("%d", &todo_id);
     todo_id--;
     getchar();
-    if (todo_id < 0 || todo_id > length)
+    if (todo_id < 1 || todo_id > length)
         puts("Invalid todo id 😑");
     else {
         todos[todo_id].is_completed = true;
