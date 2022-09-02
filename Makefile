@@ -1,28 +1,26 @@
 #makefile for build todolist app
 
+vpath %.h include
+vpath %.c src
+
 CC := gcc
 RM := rm -f
 
-TARGET = app.out
-OBJS = plans.o frame.o operate.o ui.o
+TARGET := app.out
+OBJS := $(patsubst %.c,%.o,$(wildcard *.c))
+OBJS += $(patsubst %.c,%.o,$(wildcard src/*.c))
+
+.PHONY : all
 
 all : ${TARGET}
 
 ${TARGET} : ${OBJS}
 	$(CC) $^ -o $@
+	@echo "build finished"
 
-plans.o : plans.c
-	$(CC) -c $^ -o $@
+${OBJS} : include/data.h
 
-frame.o : src/frame.c
-	$(CC) -c $^ -o $@
-
-operate.o : src/operate.c
-	$(CC) -c $^ -o $@
-
-ui.o : src/ui.c
-	$(CC) -c $^ -o $@
-
+frame.o : include/operate.h include/ui.h
 
 .PHONY : clean
 
