@@ -1,6 +1,6 @@
 .vscode
 
-database
+database/db.bin
 
 build
 
